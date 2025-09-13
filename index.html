@@ -1,3 +1,307 @@
+Anda bilang:
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GASKAN</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  transition: color 0.6s ease;
+  overflow-x: hidden;
+}
+body.dark { color: #f1f1f1; }
+
+#particles {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:0;
+  background: linear-gradient(120deg, #f5f5f5, #e0e0e0);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+body.dark #particles {
+  background: linear-gradient(120deg, #0f0f0f, #1c1c1c, #2a2a2a);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header, .hero, .container, footer { position: relative; z-index:2; }
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  transition: background 0.8s ease;
+}
+body.dark header { background: rgba(255,255,255,0.05); }
+
+.toggle-btn {
+  position: absolute;
+  right:20px; top:20px;
+  padding:10px 15px;
+  border:none;
+  border-radius:50%;
+  background: linear-gradient(135deg, pink, #88E788);
+  color:white;
+  font-size:1.3rem;
+  cursor:pointer;
+  transition: transform 0.3s, background 0.5s, box-shadow 0.5s;
+}
+.toggle-btn:hover { transform: scale(1.1); box-shadow:0 0 15px #88E788; }
+
+.hero {
+  padding:100px 20px;
+  text-align:center;
+  opacity:0;
+  animation: fadeIn 2s ease forwards;
+}
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+.hero img {
+  width:150px; height:150px;
+  border-radius:50%; object-fit:cover;
+  margin-bottom:20px;
+  border:5px solid #88E788;
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.5s;
+}
+.hero img:hover { transform: scale(1.1); }
+.hero img.glow { animation: glowProfile 1.5s ease-out; }
+@keyframes glowProfile { 0% { box-shadow:0 0 0px #88E788; } 50% { box-shadow:0 0 30px #88E788,0 0 50px #88E788; } 100% { box-shadow:0 0 0px #88E788; } }
+
+.hero h1 { font-size:2.5rem; margin-bottom:10px; }
+.hero span { color:#88E788; }
+.hero p { font-size:1.2rem; color:#555; transition:color 0.6s; }
+body.dark .hero p { color:#ccc; }
+
+.container { max-width:1000px; margin:auto; padding:60px 20px; }
+h2.section-title { text-align:center; margin-bottom:40px; font-size:2rem; color:#88E788; }
+.card { background: rgba(255,255,255,0.9); color:#333; padding:25px; border-radius:15px; margin-bottom:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:background 0.6s, color 0.6s; }
+body.dark .card { background: rgba(30,30,30,0.9); color:#ddd; box-shadow:0 5px 15px rgba(255,255,255,0.05); }
+
+.social, .projects { display:flex; justify-content:center; gap:15px; margin-top:20px; flex-wrap:wrap; }
+.btn { padding:10px 20px; border:none; border-radius:25px; font-weight:bold; text-decoration:none; display:flex; align-items:center; gap:8px; transition:transform 0.3s, box-shadow 0.3s; }
+.btn:hover { transform:scale(1.1); box-shadow:0 0 15px currentColor; }
+.btn[href*="github"] { background:#333; color:#fff; }
+.btn[href*="instagram"] { background:#d6249f; color:#fff; }
+.btn[href*="youtube"] { background:#ff0000; color:#fff; }
+.btn[href*="threads"] { background:#000; color:#fff; }
+.btn[href*="facebook"] { background:#1877f2; color:#fff; }
+.btn[href*="project"] { background:#88E788; color:#111; }
+
+footer { text-align:center; padding:20px; background: rgba(0,0,0,0.7); color:white; }
+body.dark footer { background: rgba(255,255,255,0.05); }
+
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<header>
+  <h1>Portofolio Saya</h1>
+  <button class="toggle-btn" id="toggleMode"><i class="ri-moon-line"></i></button>
+</header>
+
+<section class="hero">
+  <img src="jpg/GASKAN.jpg" alt="Foto Profil" id="profile-pic">
+  <h1>Halo, Saya <span>Sayyid</span></h1>
+  <p>Web Developer | UI Designer | Creator</p>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Tentang Saya</h2>
+  <div class="card">
+    <p>Saya seorang kreator yang menggabungkan keahlian sebagai editor visual dan tukang koding. Di satu sisi, saya senang mengolah gambar dan video menjadi karya yang menarik secara estetika. Di sisi lain, saya menikmati menulis kode untuk membangun website dan aplikasi yang fungsional. Bagi saya, kreativitas dan logika bisa berjalan beriringan untuk menghadirkan hasil yang tidak hanya indah dilihat, tetapi juga berguna dan dapat digunakan dengan baik.</p>
+  </div>
+
+  <h2 class="section-title">Project Portofolio</h2>
+  <div class="projects">
+    <a href="https://syydiqdm.github.io/mekbew/" class="btn"><i class="ri-folder-3-fill"></i> Lihat Project Saya</a>
+  </div>
+
+  <h2 class="section-title">Sosial Media</h2>
+  <div class="social">
+    <a href="https://github.com/syydiqdm" target="_blank" class="btn"><i class="ri-github-fill"></i> GitHub</a>
+    <a href="https://www.instagram.com/syydiqdm_/" target="_blank" class="btn"><i class="ri-instagram-fill"></i> Instagram</a>
+    <a href="https://www.youtube.com/@syydiqdm" target="_blank" class="btn"><i class="ri-youtube-fill"></i> YouTube</a>
+    <a href="https://www.threads.com/@syydiqdm_" target="_blank" class="btn"><i class="ri-at-line"></i> Threads</a>
+    <a href="https://web.facebook.com/syydiqdm" target="_blank" class="btn"><i class="ri-facebook-fill"></i> Facebook</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; Copyright 2025. All rights reserved.</p>
+</footer>
+
+<script>
+// Dark mode
+const toggleBtn = document.getElementById('toggleMode');
+const toggleIcon = toggleBtn.querySelector('i');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+if(prefersDark.matches){
+  document.body.classList.add('dark');
+  toggleIcon.classList.replace('ri-moon-line','ri-sun-line');
+}
+toggleBtn.addEventListener('click', ()=>{
+  document.body.classList.toggle('dark');
+  toggleIcon.classList.toggle('ri-moon-line');
+  toggleIcon.classList.toggle('ri-sun-line');
+});
+
+// Partikel interaktif dengan garis
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particlesArray = [];
+let mouse = { x:null, y:null };
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('mousemove', (e)=>{ mouse.x=e.x; mouse.y=e.y; });
+window.addEventListener('mouseout', ()=>{ mouse.x=null; mouse.y=null; });
+
+class Particle {
+  constructor(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.size = Math.random()*3+1;
+    this.speedX = (Math.random()-0.5)*1;
+    this.speedY = (Math.random()-0.5)*1;
+  }
+  update(){
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if(mouse.x && mouse.y){
+      let dx = mouse.x - this.x;
+      let dy = mouse.y - this.y;
+      let dist = Math.sqrt(dx*dx + dy*dy);
+      if(dist < 120){ this.x -= dx/50; this.y -= dy/50; }
+    }
+    if(this.x<0||this.x>canvas.width) this.speedX*=-1;
+    if(this.y<0||this.y>canvas.height) this.speedY*=-1;
+  }
+  draw(){
+    const color = document.body.classList.contains('dark') ? 'rgba(136,231,136,0.3)' : 'rgba(136,231,136,0.7)';
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function connectParticles(){
+  for(let a=0;a<particlesArray.length;a++){
+    for(let b=a;b<particlesArray.length;b++){
+      let dx = particlesArray[a].x - particlesArray[b].x;
+      let dy = particlesArray[a].y - particlesArray[b].y;
+      let dist = Math.sqrt(dx*dx + dy*dy);
+      if(dist < 120){
+        ctx.strokeStyle = document.body.classList.contains('dark') ? 'rgba(136,231,136,0.2)' : 'rgba(136,231,136,0.5)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function init(){
+  particlesArray = [];
+  for(let i=0;i<100;i++) particlesArray.push(new Particle());
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particlesArray.forEach(p=>{ p.update(); p.draw(); });
+  co
+nnectParticles();
+  requestAnimationFrame(animate);
+}
+init();
+animate();
+
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
+</script>
+</body>
+</html>
+
+tolong ketengahkan teks tentang saya dan isinya dan juga ikut ke tasakan folder projcet portofolio 
+ChatGPT bilang:
+
+Oke! Saya sudah melihat kode HTML dan CSS kamu. Untuk menengahkan teks "Tentang Saya" dan isinya, serta juga menengahkan tombol project portofolio, kita bisa menambahkan beberapa properti CSS untuk text-align: center; dan margin auto. Berikut modifikasi yang tepat:
+
+1. Tambahkan ke CSS .container .card dan .projects:
+.container .card {
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 0 auto 20px auto; /* tengah horizontal */
+  max-width: 800px;          /* batas lebar agar tidak terlalu panjang */
+  text-align: center;        /* teks rata tengah */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: background 0.6s, color 0.6s;
+}
+body.dark .card {
+  background: rgba(30,30,30,0.9);
+  color: #ddd;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+}
+
+.projects {
+  display: flex;
+  justify-content: center;  /* tengah horizontal */
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  text-align: center;       /* teks di tengah jika perlu */
+}
+
+2. Opsional: tengah-kan judul section (sudah kamu lakukan dengan .section-title)
+
+Kamu sudah menambahkan:
+
+h2.section-title { text-align:center; }
+
+
+Jadi sudah cukup.
+
+Dengan perubahan ini:
+
+Teks “Tentang Saya” dan paragrafnya akan rata tengah di halaman.
+
+Tombol project portofolio ikut berada di tengah.
+
+Card juga tetap responsif dengan maksimal lebar 800px.
+
+Kalau mau, saya bisa buatkan versi final HTML lengkap yang sudah langsung diperbaiki agar tinggal pakai tanpa harus edit CSS lagi.
+
+Apakah mau saya buatkan versi itu?
+
+Anda bilang:
+iya mau
+ChatGPT bilang:
+
+Oke! Saya buatkan versi lengkap HTML-mu yang sudah menengahkan teks “Tentang Saya”, isinya, dan tombol project portofolio, sekaligus tetap mempertahankan efek dark mode, partikel, dan animasi. Kamu tinggal pakai langsung:
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -86,13 +390,45 @@ body.dark header { background: rgba(255,255,255,0.05); }
 .hero p { font-size:1.2rem; color:#555; transition:color 0.6s; }
 body.dark .hero p { color:#ccc; }
 
-.container { max-width:1000px; margin:auto; padding:60px 20px; }
+.container { max-width:1000px; margin:auto; padding:60px 20px; text-align:center; }
 h2.section-title { text-align:center; margin-bottom:40px; font-size:2rem; color:#88E788; }
-.card { background: rgba(255,255,255,0.9); color:#333; padding:25px; border-radius:15px; margin-bottom:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:background 0.6s, color 0.6s; }
-body.dark .card { background: rgba(30,30,30,0.9); color:#ddd; box-shadow:0 5px 15px rgba(255,255,255,0.05); }
 
-.social, .projects { display:flex; justify-content:center; gap:15px; margin-top:20px; flex-wrap:wrap; }
-.btn { padding:10px 20px; border:none; border-radius:25px; font-weight:bold; text-decoration:none; display:flex; align-items:center; gap:8px; transition:transform 0.3s, box-shadow 0.3s; }
+.card {
+  background: rgba(255,255,255,0.9);
+  color:#333;
+  padding: 25px;
+  border-radius:15px;
+  margin: 0 auto 20px auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:background 0.6s, color 0.6s;
+}
+body.dark .card {
+  background: rgba(30,30,30,0.9);
+  color:#ddd;
+  box-shadow:0 5px 15px rgba(255,255,255,0.05);
+}
+
+.social, .projects { 
+  display:flex; 
+  justify-content:center; 
+  gap:15px; 
+  margin-top:20px; 
+  flex-wrap:wrap; 
+}
+
+.btn { 
+  padding:10px 20px; 
+  border:none; 
+  border-radius:25px; 
+  font-weight:bold; 
+  text-decoration:none; 
+  display:flex; 
+  align-items:center; 
+  gap:8px; 
+  transition:transform 0.3s, box-shadow 0.3s; 
+}
 .btn:hover { transform:scale(1.1); box-shadow:0 0 15px currentColor; }
 .btn[href*="github"] { background:#333; color:#fff; }
 .btn[href*="instagram"] { background:#d6249f; color:#fff; }
@@ -160,7 +496,7 @@ toggleBtn.addEventListener('click', ()=>{
   toggleIcon.classList.toggle('ri-sun-line');
 });
 
-// Partikel interaktif dengan garis
+// Partikel interaktif
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let particlesArray = [];
@@ -240,5 +576,3 @@ window.addEventListener('resize', ()=>{
 </script>
 </body>
 </html>
-
-
