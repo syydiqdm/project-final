@@ -1,7 +1,7 @@
 # 🌿 Portofolio GFX & Foto Alam 🌄
 
 Selamat datang di repositori portofolio saya!  
-Proyek ini berisi hasil karya saya dalam bidang **Graphic Design (GFX Edit)** dan **foto alam hasil edit**.  
+Proyek ini berisi hasil karya saya dalam bidang **Graphic Design (GFX)** dan **foto alam hasil edit**.  
 Semua karya di sini merupakan bagian dari eksplorasi kreativitas saya dalam menggabungkan seni visual, warna, dan nuansa alam. ✨  
 
 ---
