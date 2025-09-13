@@ -31,11 +31,6 @@ Semua karya di sini merupakan bagian dari eksplorasi kreativitas saya dalam meng
 
 ---
 
-## 📸 Preview
-
-
----
-
 ## 📬 Kontak
 Jika ingin berdiskusi atau berkolaborasi, silakan hubungi saya melalui:  
 - ✉️ Emai: sayyiqdam@gmail.com
